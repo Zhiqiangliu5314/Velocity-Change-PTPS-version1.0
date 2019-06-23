@@ -1,6 +1,8 @@
 function varargout = velocitychange2(varargin)
 %% Program for measuring velocity change from direct surface wave
 
+%%Author of this program:Zhiqiang Liu (l467808097@gmail.com), Chengdu University of Technology,China.
+
 set(0,'defaultfigurecolor','w') 
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
@@ -211,13 +213,13 @@ for i=par.std:par.edd
 if ~isempty(par.datst(i).dat)
 t=-par.dtime:par.dt:par.dtime;
 y=par.datst(i).dat;
-N=length(t)-1; %Ñùµã¸öÊı
+N=length(t)-1; %æ ·ç‚¹ä¸ªæ•°
 %plot(t,y);
-fs=100;%²ÉÑùÆµÂÊ
-df=fs/(N-1);%·Ö±æÂÊ
-f=(0:N-1)*df;%ÆäÖĞÃ¿µãµÄÆµÂÊ
+fs=100;%é‡‡æ ·é¢‘ç‡
+df=fs/(N-1);%åˆ†è¾¨ç‡
+f=(0:N-1)*df;%å…¶ä¸­æ¯ç‚¹çš„é¢‘ç‡
 f2=1./f;
-Y=fft(y(1:N))/N*2;%ÕæÊµµÄ·ùÖµ
+Y=fft(y(1:N))/N*2;%çœŸå®çš„å¹…å€¼
 %Y=fftshift(Y);
 plot(f2(1:N/2),abs(Y(1:N/2)));
 hold on
@@ -387,7 +389,7 @@ ylim([-1 1]);
 grid on;
 set(gca,'FontSize',15);
 set(gca,'linewidth',1.2);
-text(0.5*par.time(1),1.2,['Velocity change=' num2str(par.a(par.day,1)*100) '%¡À' num2str(par.a(par.day,2)*100) '%'],'FontSize',15)
+text(0.5*par.time(1),1.2,['Velocity change=' num2str(par.a(par.day,1)*100) '%Â±' num2str(par.a(par.day,2)*100) '%'],'FontSize',15)
 
 %% plot energy
 subplot (handles.plot7);
@@ -395,13 +397,13 @@ subplot (handles.plot7);
 
 t=-par.dtime:par.dt:par.dtime;
 y=par.drf;
-N=length(t)-1; %Ñùµã¸öÊı
+N=length(t)-1; %æ ·ç‚¹ä¸ªæ•°
 %plot(t,y);
-fs=100;%²ÉÑùÆµÂÊ
-df=fs/(N-1);%·Ö±æÂÊ
-f=(0:N-1)*df;%ÆäÖĞÃ¿µãµÄÆµÂÊ
+fs=100;%é‡‡æ ·é¢‘ç‡
+df=fs/(N-1);%åˆ†è¾¨ç‡
+f=(0:N-1)*df;%å…¶ä¸­æ¯ç‚¹çš„é¢‘ç‡
 f2=1./f;
-Y=fft(y(1:N))/N*2;%ÕæÊµµÄ·ùÖµ
+Y=fft(y(1:N))/N*2;%çœŸå®çš„å¹…å€¼
 %Y=fftshift(Y);
 plot(f2(1:N/2),abs(Y(1:N/2)),'r');
 hold on
@@ -410,13 +412,13 @@ hold on
 if ~isempty(par.datst(i).dat)
 t=-par.dtime:par.dt:par.dtime;
 y=par.datst(i).dat;
-N=length(t)-1; %Ñùµã¸öÊı
+N=length(t)-1; %æ ·ç‚¹ä¸ªæ•°
 %plot(t,y);
-fs=100;%²ÉÑùÆµÂÊ
-df=fs/(N-1);%·Ö±æÂÊ
-f=(0:N-1)*df;%ÆäÖĞÃ¿µãµÄÆµÂÊ
+fs=100;%é‡‡æ ·é¢‘ç‡
+df=fs/(N-1);%åˆ†è¾¨ç‡
+f=(0:N-1)*df;%å…¶ä¸­æ¯ç‚¹çš„é¢‘ç‡
 f2=1./f;
-Y=fft(y(1:N))/N*2;%ÕæÊµµÄ·ùÖµ
+Y=fft(y(1:N))/N*2;%çœŸå®çš„å¹…å€¼
 %Y=fftshift(Y);
 plot(f2(1:N/2),abs(Y(1:N/2)),'b');
 hold on
